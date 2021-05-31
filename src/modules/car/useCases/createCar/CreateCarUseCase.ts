@@ -1,4 +1,4 @@
-// import { inject, injectable } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import { Car } from "@modules/car/infra/typeorm/entities/Car";
 import { ICarsRepository } from "@modules/car/repositories/ICarsRepository";
@@ -7,24 +7,24 @@ import { AppError } from "@shared/errors/AppError";
 interface IRequest {
   name: string;
   description: string;
-  daile_rate: number;
+  daily_rate: number;
   license_plate: string;
   fine_amount: number;
   brand: string;
   category_id: string;
 }
 
-// @injectable()
+@injectable()
 class CreateCarUseCase {
   constructor(
-    // @inject("CarsRepository")
+    @inject("CarsRepository")
     private carsRepository: ICarsRepository
   ) {}
 
   async execute({
     name,
     description,
-    daile_rate,
+    daily_rate,
     license_plate,
     fine_amount,
     brand,
@@ -41,7 +41,7 @@ class CreateCarUseCase {
     const car = await this.carsRepository.create({
       name,
       description,
-      daile_rate,
+      daily_rate,
       license_plate,
       fine_amount,
       brand,
