@@ -34,7 +34,7 @@ describe("should be able create a new category", () => {
       password: "admin",
     });
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     const response = await request(app)
       .post("/categories")
@@ -43,7 +43,7 @@ describe("should be able create a new category", () => {
         description: "Criando Categoria SuperTest",
       })
       .set({
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${refresh_token}`,
       });
 
     expect(response.status).toBe(201);

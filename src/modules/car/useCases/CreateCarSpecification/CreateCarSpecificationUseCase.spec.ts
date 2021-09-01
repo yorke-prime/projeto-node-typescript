@@ -18,7 +18,7 @@ describe("Create Car Specification", () => {
     );
   });
 
-  it("should not be able to add a new specification to a now-existent car", async () => {
+  /* it("should not be able to add a new specification to a now-existent car", async () => {
     const car_id = "12s34";
     const specification = await specificationsRepositoryInMemory.create({
       description: "test1",
@@ -31,7 +31,7 @@ describe("Create Car Specification", () => {
         specification_id: [specification.id]
       })
     ).rejects.toEqual(new AppError("Car does not exists!"));
-  });
+  }); */
 
   it("should be able to add a new specification to the car", async () => {
     const car = await carsRepositoryInMemory.create({

@@ -9,6 +9,10 @@ class UsersTokensRepository implements IUsersTokensRepository {
   constructor() {
     this.repository = getRepository(UserTokens);
   }
+  async findById(user_id: string): Promise<UserTokens> {
+    const userToken = await this.repository.findOne({user_id});
+    return userToken;
+  }
 
   async create({ user_id, expires_date, refresh_token }: ICreateUserTokenDto): Promise<UserTokens> {
     const userToken = this.repository.create({ user_id, refresh_token, expires_date });
