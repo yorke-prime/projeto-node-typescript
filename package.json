@@ -6,7 +6,6 @@
     "seed:admin": "ts-node-dev src/shared/infra/database/seed/admin.ts"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^4.15.3",
     "dayjs": "^1.10.6",
